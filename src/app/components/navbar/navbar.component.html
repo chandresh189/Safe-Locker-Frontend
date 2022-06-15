@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" style="padding: 0 50px 0 50px; height:80px">
+    <span><a style="font-size: 20px;" mat-icon-button routerLink="/" >Home</a></span>
+    <span class="example-spacer"></span>
+    <a *ngIf="!loggedIn" mat-icon-button style="font-size: 20px; margin-right: 40px;" routerLink="/login">Login</a>
+    <a *ngIf="loggedIn" style="font-size: 20px;" style="margin-right: 50px;" >Hello,{{username.sub}}</a>
+    <a *ngIf="loggedIn" style="font-size: 20px;" (click)="logoutUser()" >Logout</a>
+    <a *ngIf="!loggedIn"  mat-icon-button style="font-size: 20px; margin-right: 20px;" routerLink="/register" >Register</a>
+</mat-toolbar>

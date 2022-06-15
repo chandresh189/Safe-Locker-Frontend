@@ -1,0 +1,32 @@
+<div class="bootstrap-wrapper">
+    <div class="container text-center mt">
+        <h1>Welcome to Safe Locker System</h1>
+        <h1 *ngIf="user"> Eye Pattern is {{user.eyePattern}}</h1>
+        <form (ngSubmit)="getEyePattern()">
+                    
+            <mat-form-field class="full-width">
+                <mat-label>Enter Secret Code </mat-label>
+                <input [(ngModel)]="credentials.secretCode" name="secretCode"  required type="password" matInput>
+            </mat-form-field>
+            <br>
+            <mat-form-field class="full-width">
+                <mat-label>Enter Otp </mat-label>
+                <input [(ngModel)]="credentials.otp" name="otp" required type="text" matInput>
+            </mat-form-field>
+            <button type="button" (click)="sendOtp()" mat-raised-button color="accent" style="margin-left: 10px;">Get Otp </button>
+            <div class="container text-center">
+                <button type="submit" mat-raised-button color="primary">Get Eye Pattern</button>
+            </div>
+        </form>
+        <div class="mt">
+            <h1>Manually,Open a lock</h1>
+            <button (click)="open()" [disabled]="buttonDisable" mat-raised-button color="primary">Open</button>
+            <button (click)="close()" [disabled]="buttonDisable" mat-raised-button color="primary" style="margin-left:10px">Close</button>
+        </div>
+        
+        <!-- {{credentials | json}} -->
+        <img *ngIf="lockStatus" class="img-fluid mt"  style="width: 100px;" src="/assets/locked.png" alt="Lock Image">
+        <img *ngIf="!lockStatus" class="img-fluid mt"  style="width: 100px;" src="../../../assets/unlock.png" alt="Lock Image">
+    </div>
+    
+</div>
